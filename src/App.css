@@ -1,0 +1,390 @@
+        @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css');
+        @import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css');
+
+        body {
+          overflow-x: hidden;
+        }
+
+        .card {
+          transition: all 0.3s ease;
+        }
+
+        .btn {
+          transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+          transform: scale(1.1);
+        }
+
+        .btn:active {
+          transform: scale(0.95) !important;
+        }
+
+        .cursor-pointer {
+          cursor: pointer;
+        }
+
+        /* Song Card Animations */
+        .song-card {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .song-card::before {
+          content: '';
+          position: absolute;
+          top: -2px;
+          left: -2px;
+          right: -2px;
+          bottom: -2px;
+          background: linear-gradient(45deg, #ffc107, #ff6b6b, #4ecdc4, #45b7d1, #ffc107);
+          background-size: 400%;
+          z-index: -1;
+          filter: blur(8px);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          animation: glowing 20s linear infinite;
+        }
+
+        .song-card:hover::before {
+          opacity: 0.7;
+        }
+
+        @keyframes glowing {
+          0% { background-position: 0 0; }
+          50% { background-position: 400% 0; }
+          100% { background-position: 0 0; }
+        }
+
+        .song-card:hover .song-image {
+          transform: scale(1.1) rotate(2deg);
+        }
+
+        .song-card:hover .play-button-overlay {
+          opacity: 1;
+          transform: scale(1);
+        }
+
+        .play-button-overlay {
+          opacity: 0;
+          transform: scale(0.5);
+          transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .song-card:hover {
+          transform: translateY(-10px) !important;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
+        }
+
+        /* Range Slider Styling */
+        .form-range::-webkit-slider-thumb {
+          background: #ffc107;
+          cursor: pointer;
+          width: 14px;
+          height: 14px;
+          transition: all 0.3s ease;
+        }
+
+        .form-range::-webkit-slider-thumb:hover {
+          transform: scale(1.3);
+          box-shadow: 0 0 15px rgba(255, 193, 7, 0.8);
+        }
+
+        .form-range::-moz-range-thumb {
+          background: #ffc107;
+          cursor: pointer;
+          width: 14px;
+          height: 14px;
+          transition: all 0.3s ease;
+        }
+
+        .form-range::-moz-range-thumb:hover {
+          transform: scale(1.3);
+          box-shadow: 0 0 15px rgba(255, 193, 7, 0.8);
+        }
+
+        .custom-range::-webkit-slider-thumb {
+          background: linear-gradient(135deg, #ffc107 0%, #ff8c00 100%);
+          cursor: pointer;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          box-shadow: 0 0 15px rgba(255, 193, 7, 0.7);
+          transition: all 0.3s ease;
+        }
+
+        .custom-range::-webkit-slider-thumb:hover {
+          transform: scale(1.3);
+          box-shadow: 0 0 25px rgba(255, 193, 7, 1);
+        }
+
+        .custom-range::-moz-range-thumb {
+          background: linear-gradient(135deg, #ffc107 0%, #ff8c00 100%);
+          cursor: pointer;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          box-shadow: 0 0 15px rgba(255, 193, 7, 0.7);
+          transition: all 0.3s ease;
+        }
+
+        .custom-range::-moz-range-thumb:hover {
+          transform: scale(1.3);
+          box-shadow: 0 0 25px rgba(255, 193, 7, 1);
+        }
+
+        .custom-range::-webkit-slider-runnable-track {
+          background: linear-gradient(90deg, 
+            rgba(255, 193, 7, 0.3) 0%, 
+            rgba(255, 255, 255, 0.2) 100%);
+          height: 6px;
+          border-radius: 3px;
+        }
+
+        .custom-range::-moz-range-track {
+          background: linear-gradient(90deg, 
+            rgba(255, 193, 7, 0.3) 0%, 
+            rgba(255, 255, 255, 0.2) 100%);
+          height: 6px;
+          border-radius: 3px;
+        }
+
+        /* Animations */
+        @keyframes spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        @keyframes pulse {
+          0%, 100% {
+            box-shadow: 0 0 20px rgba(255, 193, 7, 0.5);
+          }
+          50% {
+            box-shadow: 0 0 40px rgba(255, 193, 7, 0.8);
+          }
+        }
+
+        @keyframes backgroundMove {
+          0% {
+            background-position: 0 0;
+          }
+          100% {
+            background-position: 30px 30px;
+          }
+        }
+
+        @keyframes musicBar {
+          0%, 100% {
+            height: 10px;
+          }
+          50% {
+            height: 18px;
+          }
+        }
+
+        @keyframes soundWave {
+          0%, 100% {
+            height: 20px;
+          }
+          50% {
+            height: 40px;
+          }
+        }
+
+        /* Music Bar */
+        .music-bar {
+          animation: musicBar 0.8s ease-in-out infinite;
+        }
+
+        /* Sound Wave */
+        .sound-wave {
+          height: 20px;
+          animation: soundWave 0.8s ease-in-out infinite;
+        }
+
+        /* ===== Album Cover Vibration Animation ===== */
+        .album-cover {
+          transition: all 0.3s ease;
+          position: relative;
+        }
+
+        .album-cover.vibrating {
+          animation: albumVibrate 0.15s ease-in-out infinite;
+        }
+
+        .album-cover.vibrating::before {
+          content: '';
+          position: absolute;
+          top: -10px;
+          left: -10px;
+          right: -10px;
+          bottom: -10px;
+          background: linear-gradient(45deg, 
+            rgba(255, 193, 7, 0.6),
+            rgba(255, 107, 107, 0.6),
+            rgba(78, 205, 196, 0.6),
+            rgba(69, 183, 209, 0.6),
+            rgba(255, 193, 7, 0.6)
+          );
+          background-size: 400% 400%;
+          border-radius: 12px;
+          z-index: -1;
+          filter: blur(15px);
+          animation: albumGlow 3s ease-in-out infinite, gradientShift 8s ease infinite;
+        }
+
+        /* Subtle vibration (tiny shake) */
+        @keyframes albumVibrate {
+          0% { transform: translate(0, 0); }
+          25% { transform: translate(-1px, 1px); }
+          50% { transform: translate(1px, -1px); }
+          75% { transform: translate(-1px, -1px); }
+          100% { transform: translate(0, 0); }
+        }
+
+        /* Enhanced Glowing pulse effect */
+        @keyframes albumGlow {
+          0%, 100% {
+            opacity: 0.6;
+            filter: blur(15px);
+          }
+          50% {
+            opacity: 1;
+            filter: blur(20px);
+          }
+        }
+
+        /* Gradient color shift */
+        @keyframes gradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+
+        /* ===== Enhanced Button Animations ===== */
+        .btn-warning {
+          position: relative;
+          overflow: hidden;
+        }
+
+        /* .btn-warning::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 0;
+          height: 0;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.5);
+          transform: translate(-50%, -50%);
+          transition: width 0.6s, height 0.6s;
+        } */
+
+        /* .btn-warning:hover::before {
+          width: 300px;
+          height: 300px;
+        } */
+
+        .btn-outline-light:hover {
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 193, 7, 0.3) 100%);
+          border-color: #ffc107;
+          transform: scale(1.1) rotate(5deg);
+        }
+
+        .btn-light:hover {
+          background: linear-gradient(135deg, #ffffff 0%, #ffc107 100%);
+          transform: scale(1.1);
+          box-shadow: 0 5px 20px rgba(255, 193, 7, 0.5);
+        }
+
+        /* Badge animations */
+        .badge {
+          transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+          transform: scale(1.05);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Playing indicator pulse */
+        .badge.bg-danger {
+          animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        /* ===== Responsive Player Buttons ===== */
+        @media (max-width: 768px) {
+          .player-controls {
+            justify-content: center;
+            gap: 0.5rem;
+          }
+
+          .control-btn {
+            width: 45px !important;
+            height: 45px !important;
+          }
+
+          .btn-warning {
+            width: 65px !important;
+            height: 65px !important;
+          }
+
+          .btn[title="Shuffle"],
+          .btn[title="Repeat"] {
+            display: none !important;
+          }
+
+          .album-cover {
+            max-width: 200px !important;
+            max-height: 200px !important;
+          }
+        }
+
+        /* Playlist header animation */
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .song-card {
+          animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .song-card:nth-child(1) { animation-delay: 0.1s; }
+        .song-card:nth-child(2) { animation-delay: 0.2s; }
+        .song-card:nth-child(3) { animation-delay: 0.3s; }
+        .song-card:nth-child(4) { animation-delay: 0.4s; }
+        .song-card:nth-child(5) { animation-delay: 0.5s; }
+        .song-card:nth-child(6) { animation-delay: 0.6s; }
+        .song-card:nth-child(7) { animation-delay: 0.7s; }
+        .song-card:nth-child(8) { animation-delay: 0.8s; }
+
+        /* Smooth scrollbar */
+        ::-webkit-scrollbar {
+          width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background: linear-gradient(135deg, #ffc107 0%, #ff8c00 100%);
+          border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(135deg, #ff8c00 0%, #ffc107 100%);
+        }
