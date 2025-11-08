@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { songs } from '../data/data'
 import { setcurrentSong } from '../feature/playerSclice'
@@ -25,7 +25,7 @@ function Songs() {
 
                 <div className="row g-4">
                     {songs.map((song, idx) => {
-                        const isActive = currentSong?.title === song.title;
+                        const isActive = currentSong?.title === song.title; 
                         return (
                             <div key={idx} className="col-sm-6 col-md-4 col-lg-3">
                                 <div
@@ -131,7 +131,7 @@ function Songs() {
                                                 {/* Duration Badge */}
                                                 <span className="badge bg-secondary text-white small flex-shrink-0" style={{ height: 'fit-content' }}>
                                                     <i className="bi bi-clock me-1"></i>
-                                                    3:45
+                                                    3.45
                                                 </span>
                                             </div>
 
